@@ -1,0 +1,17 @@
+/* Import fonts from google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400&family=Montserrat:wght@200&display=swap');
+
+body {
+    background-color: #f2f3f8;
+}
+
+/* Navigation bar links */
+a {
+    color: #2a324b;
+    font-family: 'Lato', sans-serif;
+}
+
+a:hover {
+    color: #8e92a4;
+    font-family: 'Lato', sans-serif;
+}
