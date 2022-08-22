@@ -21,7 +21,7 @@
         <br><br>
 
         <div class="slider_container">
-            
+
             <div class="slider_text">
                 <h1>Spill the Tea</h1>
                 <p>Description</p>
