@@ -20,41 +20,53 @@
 
         <br><br>
 
-        <div class="slider_container">
+        <!-- Image slider -->
+        <div id="slider">
+            <figure>
+                <!-- 1st image in slider -->
+                <a href="" target="_blank">
+                    <img src="" alt="image slide 1" width="400" height="450">
+                </a>
+                <!-- 2nd image in slider -->
+                <a href="" target="_blank">
+                    <img src="" alt="image slide 2" width="400" height="450">
+                </a>
+                <!-- 3rd image in slider -->
+                <a href="" target="_blank">
+                    <img src="" alt="image slide 3" width="400" height="450">
+                </a>
 
-            <div class="slider_text">
+                <!-- 4th image in slider -->
+                <a href="" target="_blank">
+                    <img src="" alt="image slide 4" width="400" height="450">
+                </a>
+            </figure>
+
+            <div class="Slider-text">
                 <h1>Spill the Tea</h1>
-                <p>Description</p>
+                <div class="Slider-desc">
+                    <p></p>
+                    <p>Spill the Tea allows you to compare bubble tea prices from different brands</p>
+                </div>
             </div>
 
-            <div class="mySlides fade">
-                <img src="images/slider-img-1" alt="1st image slider" style="width: 80%">
+            <div class="Slider-button">
+                <button>Compare bubble teas</button>
             </div>
-
-            <div class="mySlides fade">
-                <img src="images/slider-img-2" alt="2nd image slider" style="width: 80%">
-            </div>
-
-            <div class="mySlides fade">
-                <img src="images/slider-img-3" alt="3rd image slider" style="width: 80%">
-            </div>
-
-            <div class="mySlides fade">
-                <img src="images/slider-img-4" alt="4th image slider" style="width: 80%">
-            </div>
-
-            <!-- Next and previous buttons -->
-            <a class="prev" onclick="plusSlides(-1)"><</a>
-            <a class="next" onclick="plusSlides(1)">></a>
         </div>
-        <br>
 
-    <!-- Dots / circles on bottom of the slider-->
-    <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-    </div>
+        <br> <br>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <br>
+            <!-- Social Media Icons -->
+            <ul id="footericons">
+                <li><a href=""><img src="image/instagram-icon.png" alt="Instagram Icon" width="20px"></a></li>
+                <li><a href=""><img src="image/facebook-icon.png" alt="Facebook Icon" width="22px"></a></li>
+            </ul>
+            <p class="center">©2022 Spill the Tea</p>
+        </footer>
 
     </body>
 </html>
