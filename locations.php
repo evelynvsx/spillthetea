@@ -1,10 +1,28 @@
-<?php
-/* Connect to the database */
-$dbcon = mysqli_connect("localhost", "salimev", "hugeknot78", "salimev_spillthetea");
+<!DOCTYPE html>
+<html lang="en">
 
-/* If connection fails, exit nicely */
-if($dbcon == NULL) {
-    echo "Could not connect to database";
-    exit();
-}
-?>
+<head>
+    <meta charset="utf-8">
+    <title>Spill the Tea</title>
+
+    <link href="css/spillthetea.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Side wide navigation bar -->
+    <nav>
+        <!-- Logo -->
+        <p><a href="index.php"><img id="logo" src="images/logo.png"</a></p>
+
+        <!-- Navigation links --->
+        <a href="index.php">Home</a>
+        <a href="compare.php">Compare</a>
+        <a href="add.php">Add</a>
+        <a href="locations.php">Locations</a>
+    </nav>
+
+    <br><br>
+
+    <h1>Boba Store Locations</h1>
+
+</body>

@@ -30,69 +30,76 @@
 
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Spill the Tea</title>
 
-<head>
-    <meta charset="utf-8">
-    <title>Spill the Tea</title>
+        <link href="css/spillthetea.css" rel="stylesheet">
+    </head>
 
-    <link href="css/spillthetea.css" rel="stylesheet">
-</head>
+    <body>
+        <!-- Side wide navigation bar -->
+        <nav>
+            <!-- Logo -->
+            <p><a href="index.php"><img id="logo" src="images/logo.png"</a></p>
 
-<body>
-    <h1>Compare the prices of boba from different brands</h1>
-    <main>
-        <!-- List the information of the selected boba record -->
-        <h2>Boba Information</h2>
-        <?php
-            echo "<p> Boba Name: " .$this_boba_record['BobaFlavour']."<br>";
-        ?>
+            <!-- Navigation links --->
+            <a href="index.php">Home</a>
+            <a href="compare.php">Compare</a>
+            <a href="add.php">Add</a>
+            <a href="locations.php">Locations</a>
+        </nav>
 
-        <!-- Allow user to search for a boba flavour -->
-        <form action="text" name="search">
-            <input type="submit" name="submit" value="Search">
-        </form>
+        <br><br>
 
-        <!-- Display the search result -->
-        <?php
-            if(isset($_POST['search'])) {
-                $search = $_POST['search'];
+        <h1>Compare the prices of boba from different brands</h1>
+        <main>
+            <!-- List the information of the selected boba record -->
+            <h2>Boba Information</h2>
+            <?php
+                echo "<p> Boba Name: " .$this_boba_record['BobaFlavour']."<br>";
+            ?>
 
-                /* % represents zero or more characters before and after the search term */
-                $search_query = "SELECT * FROM boba WHERE boba.BobaFlavour LIKE `%$search%`";
-                $search_result = mysqli_query($dbcon, $search_query);
-                $search_records = mysqli_num_rows($search_result);
+            <!-- Allow user to search for a boba flavour -->
+            <form action="text" name="search">
+                <input type="submit" name="submit" value="Search">
+            </form>
 
-                /* If there are no results found */
-                if ($search_records == 0){
-                    echo "There are no results found";
-                }
-                else {
-                    /* Print all results found */
-                    while ($result_row = mysqli_fetch_array($search_result)) {
-                        echo $result_row['drink'];
-                        echo "<br>"; /* Line break */
+            <!-- Display the search result -->
+            <?php
+                if(isset($_POST['search'])) {
+                    $search = $_POST['search'];
+
+                    /* % represents zero or more characters before and after the search term */
+                    $search_query = "SELECT * FROM boba WHERE boba.BobaFlavour LIKE `%$search%`";
+                    $search_result = mysqli_query($dbcon, $search_query);
+                    $search_records = mysqli_num_rows($search_result);
+
+                    /* If there are no results found */
+                    if ($search_records == 0){
+                        echo "There are no results found";
+                    }
+                    else {
+                        /* Print all results found */
+                        while ($result_row = mysqli_fetch_array($search_result)) {
+                            echo $result_row['drink'];
+                            echo "<br>"; /* Line break */
+                        }
                     }
                 }
-            }
-        ?>
+            ?>
+        </main>
 
-        <!-- Adding a boba into the database -->
-        <h2>Add Boba</h2>
-        <form action="add.php" method="post">
-            <!-- Post the value into the input name -->
-            <label for="BobaFlavour">Boba Flavour: </label><br>
-            <input type="text" id="BobaFlavour" name="BobaFlavour"><br>
+        <!-- Footer -->
+        <footer id="footer">
+            <br>
+            <!-- Social Media Icons -->
+            <ul id="footericons">
+                <li><a href=""><img src="image/instagram-icon.png" alt="Instagram Icon" width="20px"></a></li>
+                <li><a href=""><img src="image/facebook-icon.png" alt="Facebook Icon" width="22px"></a></li>
+            </ul>
+            <p class="center">©2022 Spill the Tea</p>
+        </footer>
 
-            <label for="BrandName">Brand Name: </label><br>
-            <input type="text" id="BrandName" name="BrandName"><br>
-
-            <label for="price">Price: $</label><br>
-            <input type="text" id="price" name="price"><br>
-
-            <!-- Perform the form action go to add.php -->
-            <input type="submit" value="Submit">
-        </form>
-
-    </main>
-</body>
+    </body>
 </html>

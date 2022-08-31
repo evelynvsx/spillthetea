@@ -67,6 +67,5 @@
             </ul>
             <p class="center">©2022 Spill the Tea</p>
         </footer>
-
     </body>
 </html>
