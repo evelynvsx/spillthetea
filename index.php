@@ -47,11 +47,12 @@
                 <div class="Slider-desc">
                     <p></p>
                     <p>Spill the Tea allows you to compare bubble tea prices from different brands</p>
+                    <p>Start comparing bubble tea prices by clicking the button below</p>
                 </div>
             </div>
 
             <div class="Slider-button">
-                <button>Compare bubble teas</button>
+                <a href="compare.php">Compare bubble tea prices</a>
             </div>
         </div>
 

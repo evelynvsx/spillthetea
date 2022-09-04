@@ -33,7 +33,7 @@ if($dbcon == NULL) {
 
         <!-- Adding a boba into the database -->
         <h1>Add Boba</h1>
-        <form action="add.php" method="post">
+        <form name="myform" action="add.php" method="post" onsubmit="return validateform()">
             <!-- Post the value into the input name -->
             <label for="BobaFlavour">Boba Flavour: </label><br>
             <input type="text" id="BobaFlavour" name="BobaFlavour"><br>
@@ -50,6 +50,36 @@ if($dbcon == NULL) {
             <input type="submit" value="Submit">
         </form>
         <br><br>
+
+        <!-- Add form (javascript) -->
+        <script>
+            function validateform(){
+                var = BobaFlavour=document.myform.BobaFlavour.value;
+                var = BrandName=document.myform.BrandName.value;
+                var = price=document.myform.price.value;
+
+                /* If boba flavour section in the form is blank, ask user to fill in */
+                if(BobaFlavour==null || BobaFlavour="") {
+                    alert("Boba flavour can't be blank");
+                    return false;
+                }
+
+                /* If brand name section in the form is blank, ask user to fill in */
+                else if (BrandName==null || BrandName="") {
+                    alert("Brand name can't be blank");
+                    return false;
+                }
+
+                /* If price section in the form is blank, ask user to fill in */
+                else if (price==null || price="") {
+                    alert("Price can't be blank");
+                    return false;
+                }
+
+                /* If everything is filled in, proceed */
+                alert("Thank you")
+            }
+        </script>
 
         <!-- Footer -->
         <footer id="footer">
