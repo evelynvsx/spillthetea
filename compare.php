@@ -59,22 +59,30 @@
             <?php
                 if(isset($_POST['search'])) {
                     $search = $_POST['search'];
-
-                    /* % represents zero or more characters before and after the search term */
-                    $search_query = "SELECT * FROM boba WHERE boba.BobaFlavour LIKE '%$search%'";
-                    $search_result = mysqli_query($dbcon, $search_query);
-                    $search_records = mysqli_num_rows($search_result);
-
-                    /* If there are no results found */
-                    if($search_records == 0){
-                        echo "There was no results found!";
-                        echo "<br>";
-                    }
-
-                    /* When user does not enter anything, tell user to enter a boba flavour */
-                    else {
+                    if(strlen($search)==0){
                         echo "Please enter a boba flavour";
                         echo "<br>";    /* line break */
+                    }
+
+                    else {
+                        /* % represents zero or more characters before and after the search term */
+                        $search_query = "SELECT * FROM boba WHERE boba.BobaFlavour LIKE '%$search%'";
+                        $search_result = mysqli_query($dbcon, $search_query);
+                        $search_records = mysqli_num_rows($search_result);
+
+
+                        /* If there are no results found */
+                        if($search_records == 0){
+                            echo "There was no results found!";
+                            echo "<br>";
+                        }
+
+                        else{
+                            while ($result_row = mysqli_fetch_array($search_result)) {
+                                echo $result_row['BobaFlavour'];
+                                echo "<br>";    /* line break */
+                            }
+                        }
                     }
                 }
 
@@ -83,10 +91,23 @@
                 $all_boba_results = mysqli_query($dbcon, $all_boba_query);
 
                 while ($all_boba_row = mysqli_fetch_assoc($all_boba_results)) {
+                    echo "<br>";
                     echo $all_boba_row['BobaFlavour'];
                     echo "<br>";
                 }
             ?>
         </main>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <br>
+            <!-- Social Media Icons -->
+            <ul id="footericons">
+                <li><a href=""><img src="image/instagram-icon.png" alt="Instagram Icon" width="20px"></a></li>
+                <li><a href=""><img src="image/facebook-icon.png" alt="Facebook Icon" width="22px"></a></li>
+            </ul>
+            <p class="center">©2022 Spill the Tea</p>
+        </footer>
+    
     </body>
 </html>
