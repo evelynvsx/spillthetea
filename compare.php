@@ -48,7 +48,7 @@
 
         <!-- Main content of the compare page -->
         <main>
-            <!-- Allow user to search for a boba -->
+            <!-- Allow user to search for a boba (search engine)-->
             <h2>Compare the prices of bubble tea from different brands</h2>
             <form action="" method="post">
                 <input type="text" name="search">
@@ -68,6 +68,7 @@
                     /* If there are no results found */
                     if($search_records == 0){
                         echo "There was no results found!";
+                        echo "<br>";
                     }
 
                     /* When user does not enter anything, tell user to enter a boba flavour */
@@ -75,6 +76,15 @@
                         echo "Please enter a boba flavour";
                         echo "<br>";    /* line break */
                     }
+                }
+
+                /* Display all boba flavours */
+                $all_boba_query = "SELECT `BobaID`,`BobaFlavour` FROM `boba`";
+                $all_boba_results = mysqli_query($dbcon, $all_boba_query);
+
+                while ($all_boba_row = mysqli_fetch_assoc($all_boba_results)) {
+                    echo $all_boba_row['BobaFlavour'];
+                    echo "<br>";
                 }
             ?>
         </main>
