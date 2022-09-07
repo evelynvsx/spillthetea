@@ -53,7 +53,9 @@
             </div>
 
             <div class="Slider-button">
-                <a href="compare.php">Compare bubble tea prices</a>
+                <form method="POST" action="compare.php">
+                    <input type="submit" value="Compare bubble tea prices">
+                </form>
             </div>
         </div>
 

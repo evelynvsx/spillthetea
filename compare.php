@@ -27,6 +27,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="utf-8">
         <title>Spill the Tea</title>
         <link rel="stylesheet" href="css/spillthetea.css">
     </head>
@@ -55,21 +56,23 @@
                 <input type="submit" name="submit" value="Search">
             </form>
 
-            <!-- Display the search result -->
+            <!-- Search engine  -->
             <?php
                 if(isset($_POST['search'])) {
                     $search = $_POST['search'];
+
+                    /* If the user does not enter a boba flavour, tell user to enter one*/
                     if(strlen($search)==0){
                         echo "Please enter a boba flavour";
                         echo "<br>";    /* line break */
                     }
 
                     else {
+                        /* Connect search engine to database */
                         /* % represents zero or more characters before and after the search term */
                         $search_query = "SELECT * FROM boba WHERE boba.BobaFlavour LIKE '%$search%'";
                         $search_result = mysqli_query($dbcon, $search_query);
                         $search_records = mysqli_num_rows($search_result);
-
 
                         /* If there are no results found */
                         if($search_records == 0){
@@ -77,6 +80,7 @@
                             echo "<br>";
                         }
 
+                        /* If the user enters a boba flavour from the database, display result */
                         else{
                             while ($result_row = mysqli_fetch_array($search_result)) {
                                 echo $result_row['BobaFlavour'];
@@ -108,6 +112,6 @@
             </ul>
             <p class="center">©2022 Spill the Tea</p>
         </footer>
-    
+
     </body>
 </html>
