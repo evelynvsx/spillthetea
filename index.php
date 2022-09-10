@@ -50,13 +50,13 @@
                     <p>Spill the Tea allows you to compare bubble tea prices from different brands</p>
                     <p>Start comparing bubble tea prices by clicking the button below</p>
                 </div>
+                <div class="Slider-button">
+                    <form method="POST" action="compare.php">
+                        <input type="submit" value="Compare bubble tea prices">
+                    </form>
+                </div>
             </div>
 
-            <div class="Slider-button">
-                <form method="POST" action="compare.php">
-                    <input type="submit" value="Compare bubble tea prices">
-                </form>
-            </div>
         </div>
 
         <br> <br>

@@ -1,0 +1,130 @@
+/* Import fonts from google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400&family=Montserrat:wght@200&display=swap');
+
+body {
+    background-color: #f2f3f8;
+}
+
+/* ------------ Fonts ------------- */
+h1{
+    font-family: 'Lato', sans-serif;
+}
+
+h2 {
+    font-family: 'Lato', sans-serif;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ------------ Navigation bar links ------------ */
+nav a {
+    color: #2a324b;
+    font-family: 'Lato', sans-serif;
+}
+
+nav a:hover {
+    color: #8e92a4;
+    font-family: 'Lato', sans-serif;
+}
+
+nav{
+    padding: 10px;
+    height: 10%;
+    background-color: #f2f3f8;
+    display: flex;
+    align-items: center;
+}
+
+/* ------------ Image slider on home page ------------ */
+.Slider-text {
+    background-color: rgba(255, 255, 255, 0.562);
+    bottom: 150px;
+    width: 100%;
+    font-weight: bolder;
+    color: #2a324b;
+    text-shadow: white 2px 1px;
+    position: absolute;
+    display: block;
+}
+.Slider-button {
+    background-color: #8e92a4;
+}
+.Slider-button:hover {
+    background-color: #f2f3f8;
+}
+#slider {
+    overflow: hidden;
+    position: relative;
+}
+#slider h1 {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    margin: auto;
+    font-size: 50px;
+}
+#slider p {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin: auto;
+    font-size: 20px;
+    padding-bottom: 15px;
+}
+#slider figure {
+    position: relative;
+    width: 480%;
+    margin: 30px;
+    animation: 15s slider infinite;
+}
+#slider figure img {
+    float: left;
+    width: 10%;
+}
+
+@keyframes slider {
+    0% {
+        left: 0;
+    }
+    10% {
+        left: -10%;
+    }
+    20% {
+        left: -20%;
+    }
+    40% {
+        left: -40%;
+    }
+    60% {
+        left: -60%;
+    }
+    80% {
+        left: -80%;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
+/* ------- Boba Store information in locations page -------*/
+* {
+    box-sizing: inherit;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}

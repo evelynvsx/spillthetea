@@ -14,12 +14,16 @@
     }
 
     /* Query the database for a single boba */
-    $this_boba_query = "SELECT * FROM boba WHERE boba.BobaID = '" .$BobaID . "'";
+    $this_boba_query = "SELECT `BobaFlavour` 
+                        FROM `boba_brand`, `boba` 
+                        WHERE  `boba`.`BobaID` = `boba_brand`.`BobaID`";
     $this_boba_result = mysqli_query($dbcon, $this_boba_query);
     $this_boba_record = mysqli_fetch_assoc($this_boba_result);
 
     /* Update boba query */
-    $update_boba = "SELECT * FROM boba";
+    $update_boba = "SELECT `BobaFlavour` 
+                    FROM `boba_brand`, `boba` 
+                    WHERE  `boba`.`BobaID` = `boba_brand`.`BobaID`";
     $update_boba_records = mysqli_query($dbcon, $update_boba);
 
 ?>
@@ -70,7 +74,7 @@
                     else {
                         /* Connect search engine to database */
                         /* % represents zero or more characters before and after the search term */
-                        $search_query = "SELECT * FROM boba WHERE boba.BobaFlavour LIKE '%$search%'";
+                        $search_query = "SELECT BobaFlavour FROM boba WHERE boba.BobaFlavour LIKE '%$search%'";
                         $search_result = mysqli_query($dbcon, $search_query);
                         $search_records = mysqli_num_rows($search_result);
 
@@ -96,10 +100,16 @@
 
                 while ($all_boba_row = mysqli_fetch_assoc($all_boba_results)) {
                     echo "<br>";
-                    echo $all_boba_row['BobaFlavour'];
+                    echo "<option value ='".$all_boba_row['BobaID'] ."'>";
+                    echo $all_boba_row['BobaFlavour'];   // Show the boba flavours in the product layout
+                    echo "</option>";
+
+                    /* Add delete record button to go to compare.php with the BobaID */
+                    echo "<td><a href=delete.php?BobaID=". $all_boba_row['BobaFlavour'] . ">Delete</a></td>";
                     echo "<br>";
                 }
             ?>
+            
         </main>
 
         <!-- Footer -->
