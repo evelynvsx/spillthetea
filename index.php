@@ -65,8 +65,8 @@
             <br>
             <!-- Social Media Icons -->
             <ul id="footericons">
-                <li><a href=""><img src="images/instagram-icon.png" alt="Instagram Icon" width="20px"></a></li>
-                <li><a href=""><img src="images/facebook-icon.png" alt="Facebook Icon" width="22px"></a></li>
+                <li><a href="https://www.instagram.com/" target="_blank"><img src="images/instagram-icon.png" alt="Instagram Icon" width="20px"></a></li>
+                <li><a href="https://www.facebook.com/" target="_blank"><img src="images/facebook-icon.png" alt="Facebook Icon" width="22px"></a></li>
             </ul>
             <p class="center">©2022 Spill the Tea</p>
         </footer>

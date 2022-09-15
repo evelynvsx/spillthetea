@@ -49,6 +49,8 @@ $update_boba_records = mysqli_query($dbcon, $update_boba);
         <input type="submit" value="Submit">
     </form>
 
+    <br> <br> <!-- Insert breaks between add boba form and boba information table -->
+
     <!-- Pull all data from boba table and add to a table -->
     <table>
         <tr>    <!--Table Row-->
@@ -64,7 +66,7 @@ $update_boba_records = mysqli_query($dbcon, $update_boba);
             /* Allow modifying the value in the database */
             echo "<tr><form action=update.php method=post>";
             echo "<td><input type=text name=BobaFlavour value='". $row['BobaFlavour'] ."'></td>";
-            echo "<td><input type=text name=price value='". $row['price'] ."'></td>";
+            echo "<td><input type=text name=Price value='". $row['Price'] ."'></td>";
 
             /* Hidden field holding the PK of the record */
             echo "<td><input type=hidden name=BobaID value='". $row['BobaID'] ."'></td>";
@@ -79,6 +81,19 @@ $update_boba_records = mysqli_query($dbcon, $update_boba);
         ?>
     </table>
 </main>
+
+<br> <br> <br> <br> <br> <!-- Space between the page content and the footer -->
+
+<!-- Footer -->
+<footer id="footer">
+    <br>
+    <!-- Social Media Icons -->
+    <ul id="footericons">
+        <li><a href="https://www.instagram.com/" target="_blank"><img src="images/instagram-icon.png" alt="Instagram Icon" width="20px"></a></li>
+        <li><a href="https://www.facebook.com/" target="_blank"><img src="images/facebook-icon.png" alt="Facebook Icon" width="22px"></a></li>
+    </ul>
+    <p class="center">©2022 Spill the Tea</p>
+</footer>
 
 </body>
 </html>

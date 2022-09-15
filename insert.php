@@ -41,12 +41,12 @@ if (strlen($BobaFlavour)>20) {
 }
 
 /*
-Validating the cost
+Validating the price
 https://supunkavinda.blog/php/input-validation-with-php#user-inputs
 */
 if (!empty($price)) {
 
-    $number = filter_var($price, FILTER_VALIDATE_INT);
+    $number = filter_var($price, FILTER_VALIDATE_FLOAT);
 
     /* Checks the number is a number and is within range */
     if ($number === false or $price < 0 or $price > 99) {

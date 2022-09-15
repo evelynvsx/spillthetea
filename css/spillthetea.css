@@ -18,7 +18,7 @@ p {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* ------------ Navigation bar links ------------ */
+/* --------- Navigation links ----------- */
 nav a {
     color: #2a324b;
     font-family: 'Lato', sans-serif;
@@ -31,10 +31,35 @@ nav a:hover {
 
 nav{
     padding: 10px;
-    height: 10%;
-    background-color: #f2f3f8;
+    height: 5%;
+    background-color: white;
     display: flex;
     align-items: center;
+}
+
+/* ------------ Footer -------------- */
+footer {
+    width: 100%;
+    background-color: white;
+    height: 60px;
+    font-weight: bold;
+    position: fixed;
+    bottom: 0px;
+    text-align: center;
+}
+#footericons li
+{
+    display: inline;
+    list-style-type: none;
+    padding-right: 30px;
+    float: right;
+    font-weight: bold;
+    text-align: center;
+}
+
+#footericons li a:hover
+{
+    opacity: 70%;
 }
 
 /* ------------ Image slider on home page ------------ */
@@ -49,10 +74,10 @@ nav{
     display: block;
 }
 .Slider-button {
-    background-color: #8e92a4;
-}
-.Slider-button:hover {
-    background-color: #f2f3f8;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 45%;
 }
 #slider {
     overflow: hidden;
@@ -127,4 +152,9 @@ nav{
     .column {
         width: 100%;
     }
+}
+
+/* ----------- Menu page ------------- */
+.search-bar {
+    margin: auto;
 }

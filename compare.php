@@ -8,18 +8,22 @@
 
     /* Default value for page */
     if(isset($_GET['BobaFlavour'])) {
-        $ID = $_GET['BobaFlavour'];
+        $BobaID = $_GET['BobaFlavour'];
     } else {
-        $ID = NULL;
+        $BobaID = NULL;
     }
 
     /* Query the database for a single boba */
-    $this_boba_query = "SELECT `BobaFlavour` FROM `boba`";
+    $this_boba_query = "SELECT `BobaFlavour` 
+                        FROM `boba_brand`, `boba` 
+                        WHERE  `boba`.`BobaID` = `boba_brand`.`BobaID`";
     $this_boba_result = mysqli_query($dbcon, $this_boba_query);
-    $this_boba_record = mysqli_fetch_array($this_boba_result);
+    $this_boba_record = mysqli_fetch_assoc($this_boba_result);
 
     /* Update boba query */
-    $update_boba = "SELECT `BobaFlavour` FROM `boba`";
+    $update_boba = "SELECT `BobaFlavour` 
+                    FROM `boba_brand`, `boba` 
+                    WHERE  `boba`.`BobaID` = `boba_brand`.`BobaID`";
     $update_boba_records = mysqli_query($dbcon, $update_boba);
 
 ?>
@@ -36,12 +40,12 @@
         <!-- Side wide navigation bar -->
         <nav>
             <!-- Logo -->
-            <p><a href="index.php"><img id="logo" src="images/logo.png" height="120px" </a></p>
+            <p><a href="index.php"><img id="logo" src="images/logo.png"</a></p>
 
             <!-- Navigation links --->
             <a href="index.php">Home</a>
-            <a href="menu.php">Menu</a>
-            <a href="updatepage.php">Update</a>
+            <a href="compare.php">Compare</a>
+            <a href="add.php">Add</a>
             <a href="locations.php">Locations</a>
         </nav>
 
@@ -50,8 +54,8 @@
         <!-- Main content of the compare page -->
         <main>
             <!-- Allow user to search for a boba (search engine)-->
-            <h2>Our Flavours</h2>
-            <form class="search-bar" action="" method="post">
+            <h2>Compare the prices of bubble tea from different brands</h2>
+            <form action="" method="post">
                 <input type="text" name="search">
                 <input type="submit" name="submit" value="Search">
             </form>
@@ -91,32 +95,30 @@
                 }
 
                 /* Display all boba flavours */
-                $all_boba_and_price_query = "SELECT `BobaFlavour`,`price` FROM `boba`";
-                $all_boba_and_price_results = mysqli_query($dbcon, $all_boba_and_price_query);
+                $all_boba_query = "SELECT `BobaID`,`BobaFlavour` FROM `boba`";
+                $all_boba_results = mysqli_query($dbcon, $all_boba_query);
 
-                while ($all_boba_and_price_row = mysqli_fetch_assoc($all_boba_and_price_results)) {
+                while ($all_boba_row = mysqli_fetch_assoc($all_boba_results)) {
                     echo "<br>";
-                    // show boba flavours in the product layout //
-                    echo "<option value ='".$all_boba_and_price_row['BobaFlavour'] ."'>";
-                    echo $all_boba_and_price_row['BobaFlavour'];
-                    echo "<option value ='".$all_boba_and_price_row['price'] ."'>";
-                    echo $all_boba_and_price_row['price'];
+                    echo "<option value ='".$all_boba_row['BobaID'] ."'>";
+                    echo $all_boba_row['BobaFlavour'];   // Show the boba flavours in the product layout
                     echo "</option>";
 
+                    /* Add delete record button to go to compare.php with the BobaID */
+                    echo "<td><a href=delete.php?BobaID=". $all_boba_row['BobaFlavour'] . ">Delete</a></td>";
+                    echo "<br>";
                 }
             ?>
             
         </main>
-
-        <br> <br> <br> <br> <br> <br><!-- Give space between the footer and the page content -->
 
         <!-- Footer -->
         <footer id="footer">
             <br>
             <!-- Social Media Icons -->
             <ul id="footericons">
-                <li><a href=""><img src="images/instagram-icon.png" alt="Instagram Icon" width="20px"></a></li>
-                <li><a href=""><img src="images/facebook-icon.png" alt="Facebook Icon" width="22px"></a></li>
+                <li><a href=""><img src="image/instagram-icon.png" alt="Instagram Icon" width="20px"></a></li>
+                <li><a href=""><img src="image/facebook-icon.png" alt="Facebook Icon" width="22px"></a></li>
             </ul>
             <p class="center">©2022 Spill the Tea</p>
         </footer>
