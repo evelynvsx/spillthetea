@@ -7,7 +7,7 @@ if($dbcon == NULL) {
 }
 
 /* Update drink and cost query */
-$update_boba = "UPDATE `boba_brand`, `boba` SET BobaFlavour='$_POST[BobaFlavour]', price ='$_POST[price]' WHERE BobaID='$_POST[BobaID]'";
+$update_boba = "UPDATE boba SET BobaFlavour='$_POST[BobaFlavour]', price ='$_POST[price]' WHERE BobaID='$_POST[BobaID]'";
 
 /* Check the record has been updated */
 if(!mysqli_query($dbcon, $update_boba)) {
@@ -17,5 +17,5 @@ if(!mysqli_query($dbcon, $update_boba)) {
 }
 
 /* Refresh the page and redirect */
-header("refresh:2; url=compare.php");
+header("refresh:2; url=menu.php");
 ?>

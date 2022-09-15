@@ -6,7 +6,7 @@ if($dbcon == NULL) {
     exit();
 }
 
-/* Update boba and cost query */
+/* Update boba and price query */
 $delete_boba = "DELETE FROM boba WHERE BobaID='$_GET[BobaID]'";
 
 /* Check the record has been deleted */
@@ -17,5 +17,5 @@ if(!mysqli_query($dbcon, $delete_boba)) {
 }
 
 /* Refresh the page and redirect */
-header("refresh:2; url=compare.php");
+header("refresh:2; url=menu.php");
 ?>
