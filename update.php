@@ -6,8 +6,8 @@ if($dbcon == NULL) {
     exit();
 }
 
-/* Update drink and cost query */
-$update_boba = "UPDATE boba SET BobaFlavour='$_POST[BobaFlavour]', price ='$_POST[price]' WHERE BobaID='$_POST[BobaID]'";
+/* Update boba and cost query */
+$update_boba = "UPDATE boba SET BobaFlavour='$_POST[BobaFlavour]', Price ='$_POST[Price]' WHERE BobaID='$_POST[BobaID]'";
 
 /* Check the record has been updated */
 if(!mysqli_query($dbcon, $update_boba)) {

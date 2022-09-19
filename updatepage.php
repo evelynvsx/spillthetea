@@ -19,6 +19,8 @@ $update_boba_records = mysqli_query($dbcon, $update_boba);
 
     <meta name="description" content="">
     <link href="css/spillthetea.css" rel="stylesheet">
+    <!-- Javascript Link -->
+    <script src="javascript/spillthetea.js"></script>
 
 </head>
 <body>
@@ -38,10 +40,11 @@ $update_boba_records = mysqli_query($dbcon, $update_boba);
     <!--Level 3 - INSERT -->
     <!--Adding a boba into the database-->
     <h2>Add Boba</h2>
-    <form action="insert.php" method="post">
+    <form name="addform" action="insert.php" method="post" onsubmit="return validateaddform()">
         <!--Post the value into the input name-->
         <label for="BobaFlavour">Boba flavour:</label><br>
         <input type="text" id="BobaFlavour" name="BobaFlavour"><br>
+
         <label for="price">Price: $</label><br>
         <input type="text" id="price" name="price">
 
@@ -94,6 +97,7 @@ $update_boba_records = mysqli_query($dbcon, $update_boba);
     </ul>
     <p class="center">©2022 Spill the Tea</p>
 </footer>
+
 
 </body>
 </html>

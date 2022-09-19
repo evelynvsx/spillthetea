@@ -29,7 +29,7 @@ function test_input($data) {
 
 function terminate_script() {
     /* Refresh the page after 2 seconds and return to the menu.php page */
-    header("refresh:2; url=menu.php");
+    header("refresh:2; url=updatepage.php");
     exit();     /* Terminate script */
 }
 
@@ -37,6 +37,11 @@ function terminate_script() {
 /* Check the length of the string */
 if (strlen($BobaFlavour)>20) {
     echo 'Boba Flavour Name too long';
+    terminate_script();
+}
+
+elseif (strlen($BobaFlavour)==0) {
+    echo 'Please insert a boba flavour';
     terminate_script();
 }
 
