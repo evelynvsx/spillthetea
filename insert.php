@@ -45,6 +45,14 @@ elseif (strlen($BobaFlavour)==0) {
     terminate_script();
 }
 
+/* Check for duplicates in the database */
+$BobaFlavour = $_POST['BobaFlavour'];
+$checkforflavours = mysql_query("SELECT * FROM boba WHERE BobaFlavour = '$BobaFlavour'");
+if(mysql_num_rows($checkforflavours) != 0) {
+    echo 'Boba Flavour already exists. Please insert another boba flavour';
+    terminate_script();
+}
+
 /*
 Validating the price
 https://supunkavinda.blog/php/input-validation-with-php#user-inputs
