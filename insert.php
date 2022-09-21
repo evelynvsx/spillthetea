@@ -13,11 +13,12 @@ PHP Form Validation
 https://www.w3schools.com/php/php_form_validation.asp
 */
 // define variables and set to empty values
-$BobaFlavour = $price = "";
+$BobaFlavour = $price = $Image = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $BobaFlavour = test_input($_POST["BobaFlavour"]);
     $price = test_input($_POST["price"]);
+    $Image = test_input($_FILES["Image"]);
 }
 
 function test_input($data) {
@@ -45,20 +46,11 @@ elseif (strlen($BobaFlavour)==0) {
     terminate_script();
 }
 
-/* Check for duplicates in the database */
-$BobaFlavour = $_POST['BobaFlavour'];
-$checkforflavours = mysql_query("SELECT * FROM boba WHERE BobaFlavour = '$BobaFlavour'");
-if(mysql_num_rows($checkforflavours) != 0) {
-    echo 'Boba Flavour already exists. Please insert another boba flavour';
-    terminate_script();
-}
-
 /*
 Validating the price
 https://supunkavinda.blog/php/input-validation-with-php#user-inputs
 */
 if (!empty($price)) {
-
     $number = filter_var($price, FILTER_VALIDATE_FLOAT);
 
     /* Checks the number is a number and is within range */
@@ -66,10 +58,28 @@ if (!empty($price)) {
         echo 'Invalid Integer' ;
         terminate_script();
     }
-
 }
 
-$insert_boba = "INSERT INTO boba (BobaFlavour, price) VALUES('$BobaFlavour', '$price')";
+error_reporting(0);
+
+$msg = "";
+
+// If upload button is clicked ...
+if (isset($_POST['submit'])) {
+
+    $Image = $_FILES["uploadfile"]["name"];
+    $tempname = $_FILES["uploadfile"]["tmp_name"];
+    $folder = "images/" . $Image;
+
+    // Now let's move the uploaded image into the folder: image
+    if (move_uploaded_file($tempname, $folder)) {
+        echo "<h3>  Image uploaded successfully!</h3>";
+    } else {
+        echo "<h3>  Failed to upload image!</h3>";
+    }
+}
+
+$insert_boba = "INSERT INTO boba (BobaFlavour, price, Image) VALUES('$BobaFlavour', '$price', '$Image')";
 
 /* Check the data has been inserted */
 if(!mysqli_query($dbcon, $insert_boba)) {

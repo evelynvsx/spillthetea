@@ -91,16 +91,29 @@
                 }
 
                 /* Display all boba flavours */
-                $all_boba_and_price_query = "SELECT `BobaFlavour`,`price` FROM `boba`";
+                $all_boba_and_price_query = "SELECT `BobaFlavour`,`price`,`image` FROM `boba`";
                 $all_boba_and_price_results = mysqli_query($dbcon, $all_boba_and_price_query);
 
-                while ($all_boba_and_price_row = mysqli_fetch_assoc($all_boba_and_price_results)) {
+                /* Display all boba image */
+                $image_query = "SELECT `Image` FROM `boba`";
+                $image_result = mysqli_query($dbcon, $image_query);
+                $image_record = mysqli_fetch_assoc($image_result);
+
+
+            while ($all_boba_and_price_row = mysqli_fetch_assoc($all_boba_and_price_results)) {
                     echo "<br>";
                     // show boba flavours in the product layout //
                     echo "<option value ='".$all_boba_and_price_row['BobaFlavour'] ."'>";
                     echo $all_boba_and_price_row['BobaFlavour'];
+
+                    // show prices for each boba flavour in the product layout
                     echo "<option value ='".$all_boba_and_price_row['price'] ."'>";
                     echo $all_boba_and_price_row['price'];
+
+                    // show images for each boba flavour in the product layout
+                    echo "<option value ='".$all_boba_and_price_row['image'] ."'>";
+                    echo $all_boba_and_price_row['image'];
+                    echo "<img src="'images/'".$image_record.";
                     echo "</option>";
 
                 }

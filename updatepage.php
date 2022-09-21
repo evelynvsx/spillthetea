@@ -10,6 +10,30 @@ if($dbcon == NULL) {
 $update_boba = "SELECT * FROM boba";
 $update_boba_records = mysqli_query($dbcon, $update_boba);
 
+/* Inserting image into database */
+if(isset($_POST['submit'])) {
+
+    $Image = $_FILES['file']['Image'];
+    $target_dir = "upload/";
+    $target_file = $target_dir . basename($_FILES["file"]["Image"]);
+
+// Select file type
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+// Valid file extensions
+    $extensions_arr = array("jpg", "jpeg", "png", "gif");
+
+// Check extension
+    if (in_array($imageFileType, $extensions_arr)) {
+        // Upload file
+        if (move_uploaded_file($_FILES['file']['tmp_name'], $target_dir . $Image)) {
+            // Insert record
+            $query = "insert into boba(Image) values('" . $Image . "')";
+            mysqli_query($dbcon, $query);
+        }
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,13 +64,18 @@ $update_boba_records = mysqli_query($dbcon, $update_boba);
     <!--Level 3 - INSERT -->
     <!--Adding a boba into the database-->
     <h2>Add Boba</h2>
-    <form name="addform" action="insert.php" method="post" onsubmit="return validateaddform()">
-        <!--Post the value into the input name-->
+    <form name="addform" action="insert.php" method="post" onsubmit="return validateaddform()" enctype="multipart/form-data">
+        <!-- Ask for the boba flavour -->
         <label for="BobaFlavour">Boba flavour:</label><br>
         <input type="text" id="BobaFlavour" name="BobaFlavour"><br>
 
+        <!-- Ask for the boba price -->
         <label for="price">Price: $</label><br>
-        <input type="text" id="price" name="price">
+        <input type="text" id="price" name="price"><br>
+
+        <!-- Ask user to upload an image -->
+        <label for="image">Upload an image:</label><br>
+        <input type="file" id="image" name="uploadfile"><br>
 
         <!--Perform the form action goto insert.php-->
         <input type="submit" value="Submit">
@@ -61,6 +90,7 @@ $update_boba_records = mysqli_query($dbcon, $update_boba);
                 Boba Flavour
             </th>
             <th>Price</th>
+            <th>Image</th>
         </tr>
         <!--Add a row for each record-->
         <?php
@@ -70,6 +100,7 @@ $update_boba_records = mysqli_query($dbcon, $update_boba);
             echo "<tr><form action=update.php method=post>";
             echo "<td><input type=text name=BobaFlavour value='". $row['BobaFlavour'] ."'></td>";
             echo "<td><input type=text name=Price value='". $row['Price'] ."'></td>";
+            echo "<td><input type='file' id='file' name='Image' value='". $row['Image'] ."'></td>";
 
             /* Hidden field holding the PK of the record */
             echo "<td><input type=hidden name=BobaID value='". $row['BobaID'] ."'></td>";

@@ -7,7 +7,8 @@ if($dbcon == NULL) {
 }
 
 /* Update boba and cost query */
-$update_boba = "UPDATE boba SET BobaFlavour='$_POST[BobaFlavour]', Price ='$_POST[Price]' WHERE BobaID='$_POST[BobaID]'";
+$update_boba = "UPDATE boba SET BobaFlavour='$_POST[BobaFlavour]', 
+                Price ='$_POST[Price]', Image ='$_POST[Image]' WHERE BobaID='$_POST[BobaID]'";
 
 /* Check the record has been updated */
 if(!mysqli_query($dbcon, $update_boba)) {
