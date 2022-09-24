@@ -18,7 +18,7 @@ $BobaFlavour = $price = $Image = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $BobaFlavour = test_input($_POST["BobaFlavour"]);
     $price = test_input($_POST["price"]);
-    $Image = test_input($_FILES["Image"]);
+    $Image = test_input($_POST["Image"]);
 }
 
 function test_input($data) {

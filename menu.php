@@ -113,7 +113,8 @@
                     // show images for each boba flavour in the product layout
                     echo "<option value ='".$all_boba_and_price_row['image'] ."'>";
                     echo $all_boba_and_price_row['image'];
-                    echo "<img src="'images/'".$image_record.";
+                    echo "<img src ='images/".$image_record['Image']."'>";
+
                     echo "</option>";
 
                 }

@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 /* Connect to the database */
 $dbcon = mysqli_connect("localhost", "salimev", "hugeknot78", "salimev_spillthetea");
 if($dbcon == NULL) {
@@ -6,16 +8,22 @@ if($dbcon == NULL) {
     exit();
 }
 
+
+if ((!isset($_SESSION['logged_in'])) or $_SESSION['logged_in'] != 1) {
+    header("Location: error_page.php");
+}
+
+
 /* Update boba query */
 $update_boba = "SELECT * FROM boba";
 $update_boba_records = mysqli_query($dbcon, $update_boba);
 
 /* Inserting image into database */
 if(isset($_POST['submit'])) {
-
-    $Image = $_FILES['file']['Image'];
+    $Image = $_FILES['uploadfile']['Image'];
+    
     $target_dir = "upload/";
-    $target_file = $target_dir . basename($_FILES["file"]["Image"]);
+    $target_file = $target_dir . basename($_FILES["uploadfile"]["Image"]);
 
 // Select file type
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -26,7 +34,7 @@ if(isset($_POST['submit'])) {
 // Check extension
     if (in_array($imageFileType, $extensions_arr)) {
         // Upload file
-        if (move_uploaded_file($_FILES['file']['tmp_name'], $target_dir . $Image)) {
+        if (move_uploaded_file($_FILES['uploadfile']['tmp_name'], $target_dir . $Image)) {
             // Insert record
             $query = "insert into boba(Image) values('" . $Image . "')";
             mysqli_query($dbcon, $query);
@@ -78,7 +86,7 @@ if(isset($_POST['submit'])) {
         <input type="file" id="image" name="uploadfile"><br>
 
         <!--Perform the form action goto insert.php-->
-        <input type="submit" value="Submit">
+        <input type="submit" value="submit">
     </form>
 
     <br> <br> <!-- Insert breaks between add boba form and boba information table -->

@@ -2,8 +2,12 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <title>Spill the Tea</title>
+
+        <!-- Links -->
         <link rel="stylesheet" href="css/spillthetea.css">
+        <script src="javascript/spillthetea.js"></script>
     </head>
 
     <body>
@@ -17,6 +21,9 @@
             <a href="menu.php">Menu</a>
             <a href="updatepage.php">Update</a>
             <a href="locations.php">Locations</a>
+            <a href="login.php">Login</a>
+            <a href="username_test.php">Username test</a>
+            <a href="process_logout.php">Logout</a>
         </nav>
 
         <!-- Image slider -->
