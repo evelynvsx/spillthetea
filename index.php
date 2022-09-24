@@ -6,27 +6,36 @@
         <title>Spill the Tea</title>
 
         <!-- Links -->
-        <link rel="stylesheet" href="css/spillthetea.css">
-        <script src="javascript/spillthetea.js"></script>
+        <link rel="stylesheet" href="css/spillthetea.css"> <!-- Connect to CSS -->
+        <script src="javascript/spillthetea.js"></script> <!-- Connect to javascript -->
     </head>
 
     <body>
-        <!-- Side wide navigation bar -->
+        <!-- Information on top of the page -->
+        <div id="admin-info">
+            <p class="center">Log in as admin to update and add boba flavours</p>
+        </div>
+
+        <!-- Navigation bar start -->
         <nav>
             <!-- Logo -->
-            <p><a href="index.php"><img id="logo" src="images/logo.png" height="120px" </a></p>
+            <div id="logo">
+                <p><a href="index.php"><img src="images/logo.png" height="100px"></a></p>
+            </div>
 
             <!-- Navigation links --->
-            <a href="index.php">Home</a>
+            <a href="index.php" class="active">Home</a>
             <a href="menu.php">Menu</a>
             <a href="updatepage.php">Update</a>
-            <a href="locations.php">Locations</a>
-            <a href="login.php">Login</a>
-            <a href="username_test.php">Username test</a>
-            <a href="process_logout.php">Logout</a>
-        </nav>
+            <a href="contact.php">Contact</a>
 
-        <!-- Image slider -->
+            <!-- Login and logout links -->
+            <a href="login.php">Login</a></p>
+            <a href="logout.php">Logout</a></p>
+        </nav>
+        <!-- Navigation bar end -->
+
+        <!-- Image slider start -->
         <div id="slider">
             <figure>
                 <!-- 1st image in slider -->
@@ -49,25 +58,24 @@
             </figure>
 
             <div class="Slider-text">
-                <h1>Spill the Tea</h1>
+                <br>
+                <h1>SPILL THE TEA</h1>
                 <div class="Slider-desc">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
                     <div class="Slider-button">
                         <form method="POST" action="menu.php">
-                            <input type="submit" value="See our flavours">
+                            <input type="submit" value="SEE OUR FLAVOURS">
                         </form>
                     </div>
+                    <br> <br>
                 </div>
-
             </div>
-
         </div>
+        <!-- Image slider end -->
 
-        <br> <br> <br> <br>
-
-        <!-- Footer -->
+        <!-- Footer start -->
         <footer id="footer">
             <br>
             <!-- Social Media Icons -->
@@ -77,5 +85,6 @@
             </ul>
             <p class="center">©2022 Spill the Tea</p>
         </footer>
+        <!-- Footer end -->
     </body>
 </html>
