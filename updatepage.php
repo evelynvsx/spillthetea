@@ -82,7 +82,7 @@ if(isset($_POST['submit'])) {
 
         <!-- Ask user to upload an image -->
         <label for="image">Upload an image:</label><br>
-        <input type="file" id="image" name="uploadfile"><br>
+        <input type="file" id="image" name="uploadfile" value=""><br>
 
         <!--Perform the form action goto insert.php-->
         <input type="submit" value="submit">

@@ -33,17 +33,24 @@
     </head>
 
     <body>
-        <!-- Side wide navigation bar -->
+        <!-- Navigation bar start -->
         <nav>
             <!-- Logo -->
-            <p><a href="index.php"><img id="logo" src="images/logo.png" height="120px" </a></p>
+            <div id="logo">
+                <p><a href="index.php"><img src="images/logo.png" height="100px"></a></p>
+            </div>
 
             <!-- Navigation links --->
-            <a href="index.php">Home</a>
+            <a href="index.php" class="active">Home</a>
             <a href="menu.php">Menu</a>
             <a href="updatepage.php">Update</a>
-            <a href="locations.php">Locations</a>
+            <a href="contact.php">Contact</a>
+
+            <!-- Login and logout links -->
+            <a href="login.php">Login</a></p>
+            <a href="logout.php">Logout</a></p>
         </nav>
+        <!-- Navigation bar end -->
 
         <br><br>
 
@@ -52,7 +59,7 @@
             <!-- Allow user to search for a boba (search engine)-->
             <h2>Our Flavours</h2>
             <form class="search-bar" action="" method="post">
-                <input type="text" name="search">
+                <input type="search" name="search">
                 <input type="submit" name="submit" value="Search">
             </form>
 
@@ -91,38 +98,29 @@
                 }
 
                 /* Display all boba flavours */
-                $all_boba_and_price_query = "SELECT `BobaFlavour`,`price`,`image` FROM `boba`";
-                $all_boba_and_price_results = mysqli_query($dbcon, $all_boba_and_price_query);
-
-                /* Display all boba image */
-                $image_query = "SELECT `Image` FROM `boba`";
-                $image_result = mysqli_query($dbcon, $image_query);
-                $image_record = mysqli_fetch_assoc($image_result);
+                $all_boba_query = "SELECT `BobaFlavour`,`price`,`Image` FROM `boba`";
+                $all_boba_results = mysqli_query($dbcon, $all_boba_query);
 
 
-            while ($all_boba_and_price_row = mysqli_fetch_assoc($all_boba_and_price_results)) {
-                    echo "<br>";
-                    // show boba flavours in the product layout //
-                    echo "<option value ='".$all_boba_and_price_row['BobaFlavour'] ."'>";
-                    echo $all_boba_and_price_row['BobaFlavour'];
+            while ($all_boba_row = mysqli_fetch_assoc($all_boba_results)) {
+                echo "<br>";
+                // show boba flavours in the product layout //
+                echo $all_boba_row['BobaFlavour'];
+                echo "<br>";
 
-                    // show prices for each boba flavour in the product layout
-                    echo "<option value ='".$all_boba_and_price_row['price'] ."'>";
-                    echo $all_boba_and_price_row['price'];
+                // show prices for each boba flavour in the product layout
+                echo $all_boba_row['price'];
+                echo "<br>";
 
-                    // show images for each boba flavour in the product layout
-                    echo "<option value ='".$all_boba_and_price_row['image'] ."'>";
-                    echo $all_boba_and_price_row['image'];
-                    echo "<img src ='images/".$image_record['Image']."'>";
-
-                    echo "</option>";
-
-                }
+                // show images for each boba flavour in the product layout
+                echo $all_boba_row['Image'];
+                echo "<img src='images/".$all_boba_row['Image']."' />";
+            }
             ?>
             
         </main>
 
-        <br> <br> <br> <br> <br> <br><!-- Give space between the footer and the page content -->
+        <br> <br> <br> <br> <br> <br> <!-- Give space between the footer and the page content -->
 
         <!-- Footer -->
         <footer id="footer">

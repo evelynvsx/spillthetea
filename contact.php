@@ -11,21 +11,26 @@
 
 <body>
 
-<!-- side wide navigation bar -->
+<!-- Navigation bar start -->
 <nav>
-    <!-- Logo & Navigation bar-->
     <!-- Logo -->
-    <p><a href="index.html"><img id="logo" src="image/ScoopyDu-Logo.png" height="100px"></a></p>
+    <div id="logo">
+        <p><a href="index.php"><img src="images/logo.png" height="100px"></a></p>
+    </div>
 
-    <!-- Navigation Links -->
-    <p><a href="index.html">Home</a></p>
-    <p><a href="menu-page.html">Menu</a></p>
-    <p><a href="aboutus_locations.html">About Us & Locations</a></p>
-    <p><a href="request.html">Request</a></p>
-    <p><a href="feedback.html">Feedback</a></p>
+    <!-- Navigation links --->
+    <a href="index.php" class="active">Home</a>
+    <a href="menu.php">Menu</a>
+    <a href="updatepage.php">Update</a>
+    <a href="contact.php">Contact</a>
+
+    <!-- Login and logout links -->
+    <a href="login.php">Login</a></p>
+    <a href="logout.php">Logout</a></p>
 </nav>
+<!-- Navigation bar end -->
 
-<br> <!-- Insert abreak so that there's a space between the navigation bar and the body -->
+<br> <!-- Insert a break so that there's a space between the navigation bar and the body -->
 
 <!-- Request Section -->
 <div class="request-icecream">
@@ -36,10 +41,10 @@
 <div class="required-boxes">
     <form name="myform" method="post" action="contact.php" onsubmit="return validatecontact()">
         Name: <input type="text" name="name"><br/>
-        Email Address: <input type="text" name="email"><br/>
+        Email Address: <input type="email" name="email"><br/>
         Feedback: <input type="text" name="Message"><br/>
         <!-- Submit button -->
-        <input type="submit" value="Submit" name="Submit">
+        <input type="button" value="Submit" name="Submit">
     </form>
 </div>
 
