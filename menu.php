@@ -56,68 +56,85 @@
 
         <!-- Main content of the compare page -->
         <main>
-            <!-- Allow user to search for a boba (search engine)-->
-            <h2>Our Flavours</h2>
-            <form class="search-bar" action="" method="post">
-                <input type="search" name="search">
-                <input type="submit" name="submit" value="Search">
-            </form>
+            <!-- Menu page heading content start -->
+            <div class="menu-heading">
 
-            <!-- Search engine  -->
+                <!-- Page title -->
+                <h2>OUR FLAVOURS</h2>
+
+                <!-- Search engine -->
+                <div class="search-engine">
+                    <form action="" method="post">
+                        <input type="search" name="search">
+                        <!-- Search submit button -->
+                        <input type="submit" name="submit" value="Search">
+                    </form>
+                </div>
+            </div>
+            <!-- Menu page heading content end -->
+
+            <!-- Search engine php start -->
             <?php
                 if(isset($_POST['search'])) {
                     $search = $_POST['search'];
 
                     /* If the user does not enter a boba flavour, tell user to enter one*/
                     if(strlen($search)==0){
-                        echo "Please enter a boba flavour";
+                        echo "<p class='search-engine-empty'>Please enter a boba flavour</p>";
                         echo "<br>";    /* line break */
                     }
 
                     else {
                         /* Connect search engine to database */
                         /* % represents zero or more characters before and after the search term */
-                        $search_query = "SELECT BobaFlavour FROM boba WHERE boba.BobaFlavour LIKE '%$search%'";
+                        $search_query = "SELECT BobaFlavour, Image, price FROM boba WHERE boba.BobaFlavour LIKE '%$search%'";
                         $search_result = mysqli_query($dbcon, $search_query);
                         $search_records = mysqli_num_rows($search_result);
 
                         /* If there are no results found */
                         if($search_records == 0){
-                            echo "There was no results found!";
+                            echo "<p class='search-engine-not-found'>There was no results found!</p>";
                             echo "<br>";
                         }
 
                         /* If the user enters a boba flavour from the database, display result */
                         else{
                             while ($result_row = mysqli_fetch_array($search_result)) {
-                                echo $result_row['BobaFlavour'];
-                                echo "<br>";    /* line break */
+                                echo "<img src='images/".$result_row['Image']."' height='100' width='100'/>";
+                                echo "<p class='boba-flavour-name'>".$result_row['BobaFlavour'];
+                                echo "<p class='prices'>$".$result_row['price'];
+
+                                /* line break */
+                                echo "<br>";
+                                echo "<p class='menu-line-break'>-------------------------------------------------</p>";
                             }
                         }
                     }
                 }
+
+                echo "<br>"; /* Insert break for space between search engine and flavours list */
 
                 /* Display all boba flavours */
                 $all_boba_query = "SELECT `BobaFlavour`,`price`,`Image` FROM `boba`";
                 $all_boba_results = mysqli_query($dbcon, $all_boba_query);
 
 
-            while ($all_boba_row = mysqli_fetch_assoc($all_boba_results)) {
-                echo "<br>";
-                // show boba flavours in the product layout //
-                echo $all_boba_row['BobaFlavour'];
-                echo "<br>";
+                while ($all_boba_row = mysqli_fetch_assoc($all_boba_results)) {
+                    echo "<br>";
 
-                // show prices for each boba flavour in the product layout
-                echo $all_boba_row['price'];
-                echo "<br>";
+                    // show images for each boba flavour in the product layout
+                    echo "<br>";
+                    echo "<img src='images/".$all_boba_row['Image']."' height='100' width='100'/>";
+                    echo "<br>";
 
-                // show images for each boba flavour in the product layout
-                echo "<br>";
-                echo "<img src='images/".$all_boba_row['Image']."' height='100' width='100'/>";
-                echo "<br>";
-            }
-            ?>
+                    // show boba flavours in the product layout //
+                    echo "<p class='boba-flavour-name'>".$all_boba_row['BobaFlavour'];
+
+                    // show prices for each boba flavour in the product layout
+                    echo "<p class='prices'>$".$all_boba_row['price'];
+                    echo "<br>";
+                }
+                ?>
             
         </main>
 
