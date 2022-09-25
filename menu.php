@@ -41,8 +41,8 @@
             </div>
 
             <!-- Navigation links --->
-            <a href="index.php" class="active">Home</a>
-            <a href="menu.php">Menu</a>
+            <a href="index.php">Home</a>
+            <a href="menu.php" class="active">Menu</a>
             <a href="updatepage.php">Update</a>
             <a href="contact.php">Contact</a>
 
@@ -113,8 +113,9 @@
                 echo "<br>";
 
                 // show images for each boba flavour in the product layout
-                echo $all_boba_row['Image'];
-                echo "<img src='images/".$all_boba_row['Image']."' />";
+                echo "<br>";
+                echo "<img src='images/".$all_boba_row['Image']."' height='100' width='100'/>";
+                echo "<br>";
             }
             ?>
             
