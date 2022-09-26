@@ -18,7 +18,6 @@ $BobaFlavour = $price = $Image = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $BobaFlavour = test_input($_POST["BobaFlavour"]);
     $price = test_input($_POST["price"]);
-    $Image = test_input($_POST["Image"]);
 }
 
 function test_input($data) {
@@ -57,25 +56,6 @@ if (!empty($price)) {
     if ($number === false or $price < 0 or $price > 99) {
         echo 'Invalid Integer' ;
         terminate_script();
-    }
-}
-
-error_reporting(0);
-
-$msg = "";
-
-// If upload button is clicked ...
-if (isset($_POST['submit'])) {
-
-    $Image = $_FILES["uploadfile"]["name"];
-    $tempname = $_FILES["uploadfile"]["tmp_name"];
-    $folder = "images/" . $Image;
-
-    // Now let's move the uploaded image into the folder: image
-    if (move_uploaded_file($tempname, $folder)) {
-        echo "<h3>  Image uploaded successfully!</h3>";
-    } else {
-        echo "<h3>  Failed to upload image!</h3>";
     }
 }
 

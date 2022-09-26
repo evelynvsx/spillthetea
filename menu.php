@@ -135,10 +135,7 @@
                     echo "<br>";
                 }
                 ?>
-            
         </main>
-
-        <br> <br> <br> <br> <br> <br> <!-- Give space between the footer and the page content -->
 
         <!-- Footer -->
         <footer id="footer">
