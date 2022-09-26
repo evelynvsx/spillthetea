@@ -27,7 +27,7 @@
 
         <!-- Login and logout links -->
         <a href="login.php">Login</a></p>
-        <a href="logout.php">Logout</a></p>
+        <a href="process_logout.php">Logout</a></p>
     </nav>
     <!-- Navigation bar end -->
 
@@ -65,7 +65,6 @@
                     <label for="message">Message</label><br>
                     <textarea rows="6" placeholder="Your Message"  name="message" required></textarea>
                     <br> <br><!-- break for space between one text box and another -->
-
                 </div>
 
             </form>
