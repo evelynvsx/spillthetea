@@ -54,6 +54,10 @@
                     <label for="email">Email Address</label><br>
                     <input type="email" name="email" placeholder="Your Email Address" required>
                     <br> <br><!-- break for space between one text box and another -->
+
+                    <!-- Submit button -->
+                    <button id="contact-submit-button" type="submit" name="submit">Submit</button>
+
                 </div>
 
                 <div class="contact-form-right-column">
@@ -61,10 +65,10 @@
                     <label for="message">Message</label><br>
                     <textarea rows="6" placeholder="Your Message"  name="message" required></textarea>
                     <br> <br><!-- break for space between one text box and another -->
+
                 </div>
+
             </form>
-            <!-- Submit button -->
-            <button id="contact-submit-button" type="submit" name="submit">Submit</button>
         </div>
     </main>
 
