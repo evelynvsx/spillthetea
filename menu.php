@@ -33,11 +33,16 @@
     </head>
 
     <body>
+        <!-- Information on top of the page -->
+        <div id="admin-info">
+            <p class="center">Log in as admin to update and add boba flavours</p>
+        </div>
+
         <!-- Navigation bar start -->
         <nav>
             <!-- Logo -->
             <div id="logo">
-                <p><a href="index.php"><img src="images/logo.png" height="100px"></a></p>
+                <p><a href="index.php"><img src="images/logo.png" alt="spill the tea logo" height="100px"></a></p>
             </div>
 
             <!-- Navigation links --->
@@ -61,6 +66,7 @@
 
                 <!-- Page title -->
                 <h2>OUR FLAVOURS</h2>
+                <p>Use the search engine down below to search for a boba flavour</p><br>
 
                 <!-- Search engine -->
                 <div class="search-engine">
@@ -72,6 +78,8 @@
                 </div>
             </div>
             <!-- Menu page heading content end -->
+
+            <br> <br> <!-- Insert break to give space between search engine and menu column -->
 
             <!-- Search engine php start -->
             <?php
@@ -100,13 +108,12 @@
                         /* If the user enters a boba flavour from the database, display result */
                         else{
                             while ($result_row = mysqli_fetch_array($search_result)) {
-                                echo "<img src='images/".$result_row['Image']."' height='100' width='100'/>";
                                 echo "<p class='boba-flavour-name'>".$result_row['BobaFlavour'];
                                 echo "<p class='prices'>$".$result_row['price'];
 
                                 /* line break */
                                 echo "<br>";
-                                echo "<p class='menu-line-break'>-------------------------------------------------</p>";
+                                echo "<p class='menu-line-break'></p>";
                             }
                         }
                     }
@@ -118,21 +125,30 @@
                 $all_boba_query = "SELECT `BobaFlavour`,`price`,`Image` FROM `boba`";
                 $all_boba_results = mysqli_query($dbcon, $all_boba_query);
 
+                /* Display boba flavours in menu column to act as its grid */
+                /* Display menu table's titles */
+                echo
+                "<table class='menu-grid'>
+                <tr>
+                <th>IMAGE</th>
+                <th>BOBA FLAVOUR</th>
+                <th>PRICE</th>
+                </tr>";
 
                 while ($all_boba_row = mysqli_fetch_assoc($all_boba_results)) {
-                    echo "<br>";
+                    /* Table content start */
+                    echo "<tr>";
 
                     // show images for each boba flavour in the product layout
-                    echo "<br>";
-                    echo "<img src='images/".$all_boba_row['Image']."' height='100' width='100'/>";
-                    echo "<br>";
+                    echo "<td><br><img src='images/".$all_boba_row['Image']."' height='100' width='100'/></td>";
 
                     // show boba flavours in the product layout //
-                    echo "<p class='boba-flavour-name'>".$all_boba_row['BobaFlavour'];
+                    echo "<p class='boba-flavour-name'><td>".$all_boba_row['BobaFlavour']."</td>";
 
                     // show prices for each boba flavour in the product layout
-                    echo "<p class='prices'>$".$all_boba_row['price'];
-                    echo "<br>";
+                    echo "<p class='prices'><td>$".$all_boba_row['price']."</td>";
+
+                    echo "</tr>";
                 }
                 ?>
         </main>

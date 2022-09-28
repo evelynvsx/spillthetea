@@ -24,14 +24,14 @@ exit();
         <!-- Navigation bar start -->
         <nav>
             <!-- Logo -->
-            <p><a href="index.php"><img id="logo" src="images/logo.png" height="120px" </a></p>
+            <p><a href="index.php"><img id="logo" src="images/logo.png" alt="spill the tea logo" height="120px" </a></p>
 
             <!-- Navigation links --->
             <a href="index.php">Home</a>
             <a href="menu.php">Menu</a>
             <a href="updatepage.php">Update</a>
             <a href="contact.php">Contact</a>
-            <a href="login.php">Login</a>
+            <a href="login.php" class="active">Login</a>
         </nav>
         <!-- Navigation bar end -->
 

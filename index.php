@@ -20,7 +20,7 @@
         <nav>
             <!-- Logo -->
             <div id="logo">
-                <p><a href="index.php"><img src="images/logo.png" height="100px"></a></p>
+                <p><a href="index.php"><img src="images/logo.png" alt="spill the tea logo" height="100px"></a></p>
             </div>
 
             <!-- Navigation links --->
