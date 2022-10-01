@@ -8,10 +8,11 @@
         exit();
     }
 
-    /* Get from the order id from index page else set default */
+    /* Get from the order id from update page else set default */
     if(isset($_GET['order_sel'])) {
         $OrderID = $_GET['order_sel'];
-    } else {
+    } 
+    else {
         $OrderID = NULL;
     }
     echo $OrderID;
@@ -21,14 +22,13 @@
                          FROM `order`, `boba`, `customer` 
                          WHERE `boba`.`BobaID` = `order`.`BobaID` AND `customer`.`CustomerID` = `order`.`CustomerID`";
                          
-
     /* Perform the query against the database */
     $this_order_result = mysqli_query($dbcon, $this_order_query);
 
     /* Fetch the result into an associative array */
     $this_order_record = mysqli_fetch_assoc($this_order_result);
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -57,16 +57,41 @@
     <!-- Navigation bar end -->
 
     <body>
-        <h2>Drinks Information</h2>
-        <!--Order info $this_order_record is the associative array, italicise the value-->
-        <?php
-            echo "<h2> Order Number: <em>". $this_order_record['OrderID'] ."</em></h2><br>";
-            echo "Boba Flavour: <em>". $this_order_record['BobaFlavour'] ."</em><br>";
-            echo "Customer First Name: <em>". $this_order_record['FName'] ."</em><br>";
-            echo "Customer Last Name: <em>" . $this_order_record['LName'] ."</em><br>";
-            echo "Price: <em>". $this_order_record['Price'] ."</em></p>";
-            echo "<br><img src='images/".$this_order_record['Image']."' height='100' width='100'/>";
+        <main>
+            <div class="orders-content">
+                <h2>Orders' Information</h2>
+                <!--Order info $this_order_record is the associative array, italicise the value-->
+                <?php
+                    /* State the order number */
+                    echo "<h3> Order Number: <em>". $this_order_record['OrderID'] ."</em></h3><br>";
 
-        ?>
+                    /* Show details of the boba that the customer ordered */
+                    echo "<h4> Ordered Boba Details: </h4>";
+                    echo "<br><img src='images/".$this_order_record['Image']."' height='200' width='200'/><br>";
+                    echo "<p> Boba Flavour: ". $this_order_record['BobaFlavour'] ."</p>";
+                    echo "<p> Price: ". $this_order_record['Price'] ."</p>";
+
+                    echo "<br>"; /* Give space between boba details and customer details */
+
+                    /* Details of the customer */
+                    echo "<h4> Customer Details: </h4>";
+                    echo "<p> First Name: ". $this_order_record['FName'] ."</p>";
+                    echo "<p> Last Name: ". $this_order_record['LName'] ."</p>";
+                ?>
+            </div>
+        </main>
+
+        <!-- Footer start -->
+        <footer id="footer">
+            <br>
+            <!-- Social Media Icons -->
+            <ul id="footericons">
+                <li><a href=""><img src="images/instagram-icon.png" alt="Instagram Icon" width="20px"></a></li>
+                <li><a href=""><img src="images/facebook-icon.png" alt="Facebook Icon" width="22px"></a></li>
+            </ul>
+            <p class="center">©2022 Spill the Tea</p>
+        </footer>
+        <!-- Footer end -->
+        
     </body>
 </html>

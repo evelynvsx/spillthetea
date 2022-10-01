@@ -17,7 +17,7 @@ if ((!isset($_SESSION['logged_in'])) or $_SESSION['logged_in'] != 1) {
 $update_boba = "SELECT * FROM boba";
 $update_boba_records = mysqli_query($dbcon, $update_boba);
 
-/* RDERS DROPDOWN */
+/* ORDERS DROPDOWN */
 /* Create a query to get all orders and perform against the db */
 $all_orders_query = "SELECT OrderID FROM order ORDER BY OrderID";
 $all_orders_result = mysqli_query($dbcon, $all_orders_query);
@@ -85,16 +85,16 @@ $all_orders_result = mysqli_query($dbcon, $all_orders_query);
         <h2>UPDATE BOBA</h2>
         <div class="update-boba-table">
             <table>
-                <tr>    <!--Table Row-->
-                    <th>    <!--Table Header-->
-                        Boba Flavour
-                    </th>
+                <!--Table Row-->
+                <tr>
+                    <!--Table Header-->
+                    <th>Boba Flavour</th>
                     <th>Price</th>
                     <th>Image</th>
                 </tr>
+
                 <!--Add a row for each record-->
                 <?php
-
                 while($row = mysqli_fetch_array($update_boba_records)) {
                     /* Allow modifying the value in the database */
                     echo "<tr><form action=update.php method=post>";
@@ -108,7 +108,7 @@ $all_orders_result = mysqli_query($dbcon, $all_orders_query);
                     /* Add Submit button to perform the form action goto update.php */
                     echo "<td><input type=submit class='image-submit'></td>";
 
-                    /* Add Delete record button to goto drink.php with the drink_id */
+                    /* Add Delete record button to go to delete.php with the BobaID */
                     echo "<td><a class='delete-boba' href=delete.php?BobaID=". $row['BobaID'] . ">Delete</a></td>";
                     echo "</form></tr>";
                 }
@@ -117,25 +117,29 @@ $all_orders_result = mysqli_query($dbcon, $all_orders_query);
         </div>
     </div>
 
-    <!-- Orders section (show the orders that the customer made -->
+    <br> <br> <!-- Insert a break between boba information table and orders section -->
+
+    <!-- Orders section (show the orders that the customer made) -->
     <div class="orders-section">
-        <h2>View the customers' orders</h2>
+        <h2>VIEW CUSTOMERS' ORDERS</h2>
 
         <!-- Orders dropdown form -->
-        <form name='orders_form' id='orders_form' method='get' action='orders.php'>
-            <select name='order_sel' id='order_sel'>
-                <!--Options-->
-                <?php
-                while($all_orders_record = mysqli_fetch_assoc($all_orders_result)){
-                    echo "<option value = '". $all_orders_record['OrderID'] . "'>";
-                    echo $all_orders_record['OrderID'];
-                    echo "</option>";
-                }
-                ?>
-            </select>
-            <!--Show order button-->
-            <input type="submit" name="orders_button" value="Show order info">
-        </form>
+        <div id='orders_form'>
+            <form name='orders_form' method='get' action='orders.php'>
+                <select name='order_sel' id='order_sel'>
+
+                    <!--Options-->
+                    <?php
+                        while($all_orders_record = mysqli_fetch_assoc($all_orders_result)){
+                            echo "<option value = '". $all_orders_record['OrderID']."'></option>";
+                        }
+                    ?>
+
+                </select>
+                <!--Show order button-->
+                <input type="submit" name="orders_button" id="orders_button" value="Show order info">
+            </form>
+        </div>
     </div>
 
 
