@@ -31,7 +31,7 @@
 
             <!-- Login and logout links -->
             <a href="login.php">Login</a></p>
-            <a href="logout.php">Logout</a></p>
+            <a href="process_logout.php">Logout</a></p>
         </nav>
         <!-- Navigation bar end -->
 

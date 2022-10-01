@@ -17,7 +17,10 @@ if ((!isset($_SESSION['logged_in'])) or $_SESSION['logged_in'] != 1) {
 $update_boba = "SELECT * FROM boba";
 $update_boba_records = mysqli_query($dbcon, $update_boba);
 
-
+/* RDERS DROPDOWN */
+/* Create a query to get all orders and perform against the db */
+$all_orders_query = "SELECT OrderID FROM order ORDER BY OrderID";
+$all_orders_result = mysqli_query($dbcon, $all_orders_query);
 
 ?>
 <!DOCTYPE html>
@@ -53,7 +56,7 @@ $update_boba_records = mysqli_query($dbcon, $update_boba);
         <a href="contact.php">Contact</a>
 
         <!-- Logout link -->
-        <a href="logout.php">Logout</a></p>
+        <a href="process_logout.php">Logout</a></p>
     </nav>
     <!-- Navigation bar end -->
 
@@ -113,6 +116,29 @@ $update_boba_records = mysqli_query($dbcon, $update_boba);
             </table>
         </div>
     </div>
+
+    <!-- Orders section (show the orders that the customer made -->
+    <div class="orders-section">
+        <h2>View the customers' orders</h2>
+
+        <!-- Orders dropdown form -->
+        <form name='orders_form' id='orders_form' method='get' action='orders.php'>
+            <select name='order_sel' id='order_sel'>
+                <!--Options-->
+                <?php
+                while($all_orders_record = mysqli_fetch_assoc($all_orders_result)){
+                    echo "<option value = '". $all_orders_record['OrderID'] . "'>";
+                    echo $all_orders_record['OrderID'];
+                    echo "</option>";
+                }
+                ?>
+            </select>
+            <!--Show order button-->
+            <input type="submit" name="orders_button" value="Show order info">
+        </form>
+    </div>
+
+
 </main>
 
 <!-- Footer -->

@@ -53,7 +53,7 @@
 
             <!-- Login and logout links -->
             <a href="login.php">Login</a></p>
-            <a href="logout.php">Logout</a></p>
+            <a href="process_logout.php">Logout</a></p>
         </nav>
         <!-- Navigation bar end -->
 
@@ -135,6 +135,7 @@
                 <th>PRICE</th>
                 </tr>";
 
+                /* Table content */
                 while ($all_boba_row = mysqli_fetch_assoc($all_boba_results)) {
                     /* Table content start */
                     echo "<tr>";
