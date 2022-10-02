@@ -142,7 +142,8 @@
                     echo "<tr>";
 
                     // show images for each boba flavour in the product layout
-                    echo "<td><br><img src='images/".$all_boba_row['Image']."' height='125' width='125'/></td>";
+                    echo "<td><br><img src='images/".$all_boba_row['Image']."' height='125' width='125' 
+                                       alt=".'BobaFlavour:'.$all_boba_row['BobaFlavour']."'/></td>";
 
                     // show boba flavours in the product layout //
                     echo "<p class='boba-flavour-name'><td>".$all_boba_row['BobaFlavour']."</td>";

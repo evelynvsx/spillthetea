@@ -12,7 +12,6 @@ if ((!isset($_SESSION['logged_in'])) or $_SESSION['logged_in'] != 1) {
     header("Location: error_page.php");
 }
 
-
 /* Update boba query */
 $update_boba = "SELECT * FROM boba";
 $update_boba_records = mysqli_query($dbcon, $update_boba);
