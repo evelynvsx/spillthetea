@@ -8,25 +8,21 @@
         exit();
     }
 
-    /* Get from the order id from update page else set default */
-    if(isset($_GET['order_sel'])) {
-        $OrderID = $_GET['order_sel'];
-    } 
-    else {
-        $OrderID = NULL;
+    if(isset($_GET['order'])){
+        $OrderID = $_GET['order'];
     }
-    echo $OrderID;
+    else {
+        $OrderID = 1;
+    }
 
     /* Create the SQL query */
-    $this_order_query = "SELECT `BobaFlavour`, `FName`, `LName`, `Price`, `OrderID`, `Image`
+    $this_order_query = "SELECT `OrderID`, `Image`,  `FName`, `LName`, `BobaFlavour`, `Price`
                          FROM `order`, `boba`, `customer` 
-                         WHERE `boba`.`BobaID` = `order`.`BobaID` AND `customer`.`CustomerID` = `order`.`CustomerID`";
+                         WHERE `boba`.`BobaID` = `order`.`BobaID` AND `customer`.`CustomerID` = `order`.`CustomerID` 
+                         ORDER BY `order`.`OrderID`";
                          
     /* Perform the query against the database */
     $this_order_result = mysqli_query($dbcon, $this_order_query);
-
-    /* Fetch the result into an associative array */
-    $this_order_record = mysqli_fetch_assoc($this_order_result);
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +43,8 @@
         <!-- Navigation links --->
         <a href="index.php">Home</a>
         <a href="menu.php">Menu</a>
-        <a href="updatepage.php"  class="active">Update</a>
+        <a href="updatepage.php">Update</a>
+        <a href="orders.php" class="active">Orders</a>
         <a href="contact.php">Contact</a>
 
         <!-- Login and logout links -->
@@ -58,27 +55,42 @@
 
     <body>
         <main>
+            <!-- Pull all data from order table in the database and add to a table -->
             <div class="orders-content">
-                <h2>Orders' Information</h2>
-                <!--Order info $this_order_record is the associative array, italicise the value-->
-                <?php
-                    /* State the order number */
-                    echo "<h3> Order Number: <em>". $this_order_record['OrderID'] ."</em></h3><br>";
+                <h2>ORDERS INFORMATION</h2>
+                <br><br><br><br> <!-- Give space between orders page title and orders table -->
 
-                    /* Show details of the boba that the customer ordered */
-                    echo "<h4> Ordered Boba Details: </h4>";
-                    echo "<br><img src='images/".$this_order_record['Image']."' height='200' width='200'/><br>";
-                    echo "<p> Boba Flavour: ". $this_order_record['BobaFlavour'] ."</p>";
-                    echo "<p> Price: ". $this_order_record['Price'] ."</p>";
+                <div class="orders-info-table">
+                    <table>
+                        <!--Table Row-->
+                        <tr>
+                            <!--Table Header-->
+                            <th>Order ID</th>
+                            <th>Image</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Boba Flavour</th>
+                            <th>Price</th>
+                        </tr>
 
-                    echo "<br>"; /* Give space between boba details and customer details */
+                        <!--Add a row for each record-->
+                        <?php
+                        while($this_order_record = mysqli_fetch_array($this_order_result)) {
+                            /* Allow modifying the value in the database */
+                            echo "<td><p class='orders-table-info'>".$this_order_record['OrderID']."</td>";
+                            echo "<td><br><img src='images/".$this_order_record['Image']."' height='125' width='125'/></td>";
+                            echo "<td><p class='orders-table-info'>".$this_order_record['FName']."</td>";
+                            echo "<td><p class='orders-table-info'>".$this_order_record['LName']."</td>";
+                            echo "<td><p class='orders-table-info'>".$this_order_record['BobaFlavour']."</td>";
+                            echo "<td><p class='orders-table-info'>".$this_order_record['Price']."</td>";
 
-                    /* Details of the customer */
-                    echo "<h4> Customer Details: </h4>";
-                    echo "<p> First Name: ". $this_order_record['FName'] ."</p>";
-                    echo "<p> Last Name: ". $this_order_record['LName'] ."</p>";
-                ?>
+                            echo "</form></tr>";
+                        }
+                        ?>
+                    </table>
+                </div>
             </div>
+
         </main>
 
         <!-- Footer start -->

@@ -49,6 +49,7 @@
             <a href="index.php">Home</a>
             <a href="menu.php" class="active">Menu</a>
             <a href="updatepage.php">Update</a>
+            <a href="orders.php">Orders</a>
             <a href="contact.php">Contact</a>
 
             <!-- Login and logout links -->
@@ -95,7 +96,7 @@
                     else {
                         /* Connect search engine to database */
                         /* % represents zero or more characters before and after the search term */
-                        $search_query = "SELECT BobaFlavour, Image, price FROM boba WHERE boba.BobaFlavour LIKE '%$search%'";
+                        $search_query = "SELECT BobaFlavour, price FROM boba WHERE boba.BobaFlavour LIKE '%$search%'";
                         $search_result = mysqli_query($dbcon, $search_query);
                         $search_records = mysqli_num_rows($search_result);
 
@@ -141,7 +142,7 @@
                     echo "<tr>";
 
                     // show images for each boba flavour in the product layout
-                    echo "<td><br><img src='images/".$all_boba_row['Image']."' height='100' width='100'/></td>";
+                    echo "<td><br><img src='images/".$all_boba_row['Image']."' height='125' width='125'/></td>";
 
                     // show boba flavours in the product layout //
                     echo "<p class='boba-flavour-name'><td>".$all_boba_row['BobaFlavour']."</td>";

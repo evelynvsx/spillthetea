@@ -53,6 +53,7 @@ $all_orders_result = mysqli_query($dbcon, $all_orders_query);
         <a href="index.php">Home</a>
         <a href="menu.php">Menu</a>
         <a href="updatepage.php" class="active">Update</a>
+        <a href="orders.php">Orders</a>
         <a href="contact.php">Contact</a>
 
         <!-- Logout link -->
@@ -118,31 +119,6 @@ $all_orders_result = mysqli_query($dbcon, $all_orders_query);
     </div>
 
     <br> <br> <!-- Insert a break between boba information table and orders section -->
-
-    <!-- Orders section (show the orders that the customer made) -->
-    <div class="orders-section">
-        <h2>VIEW CUSTOMERS' ORDERS</h2>
-
-        <!-- Orders dropdown form -->
-        <div id='orders_form'>
-            <form name='orders_form' method='get' action='orders.php'>
-                <select name='order_sel' id='order_sel'>
-
-                    <!--Options-->
-                    <?php
-                        while($all_orders_record = mysqli_fetch_assoc($all_orders_result)){
-                            echo "<option value = '". $all_orders_record['OrderID']."'></option>";
-                        }
-                    ?>
-
-                </select>
-                <!--Show order button-->
-                <input type="submit" name="orders_button" id="orders_button" value="Show order info">
-            </form>
-        </div>
-    </div>
-
-
 </main>
 
 <!-- Footer -->
