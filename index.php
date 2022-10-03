@@ -26,13 +26,11 @@
             <!-- Navigation links --->
             <a href="index.php" class="active">Home</a>
             <a href="menu.php">Menu</a>
-            <a href="updatepage.php">Update</a>
+            <a href="aboutus.php">About Us</a>
             <a href="contact.php">Contact</a>
-            <a href="location.php">Location</a>
 
             <!-- Login and logout links -->
             <a href="login.php">Login</a></p>
-            <a href="process_logout.php">Logout</a></p>
         </nav>
         <!-- Navigation bar end -->
 

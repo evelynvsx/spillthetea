@@ -29,7 +29,7 @@ exit();
             <!-- Navigation links --->
             <a href="index.php">Home</a>
             <a href="menu.php">Menu</a>
-            <a href="updatepage.php">Update</a>
+            <a href="aboutus.php">About Us</a>
             <a href="contact.php">Contact</a>
             <a href="login.php" class="active">Login</a>
         </nav>

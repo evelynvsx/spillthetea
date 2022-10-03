@@ -26,13 +26,11 @@
             <!-- Navigation links --->
             <a href="index.php">Home</a>
             <a href="menu.php">Menu</a>
-            <a href="updatepage.php">Update</a>
             <a href="aboutus.php">About Us</a>
             <a href="contact.php" class="active">Contact</a>
 
             <!-- Login and logout links -->
             <a href="login.php">Login</a></p>
-            <a href="process_logout.php">Logout</a></p>
         </nav>
         <!-- Navigation bar end -->
 
@@ -80,6 +78,9 @@
             <br> <br> <br> <!-- Separate contact form with store location -->
 
             <!-- Locations content -->
+            <div class="locations-description">
+                <p>FIND US DOWN BELOW</p>
+            </div>
             <div class="locations-content">
                 <!-- Locations page information -->
                 <h2>OUR LOCATIONS</h2>

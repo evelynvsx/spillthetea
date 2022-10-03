@@ -18,5 +18,5 @@ if(!mysqli_query($dbcon, $update_boba)) {
 }
 
 /* Refresh the page and redirect */
-header("refresh:2; url=menu.php");
+header("refresh:2; url=admin_menu.php");
 ?>
