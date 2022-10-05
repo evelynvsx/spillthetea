@@ -19,11 +19,13 @@ $hash = $login_record['Password'];
 
 $verify = password_verify($pass, $hash);
 if($verify) {
+    echo "Logged in";
     $_SESSION['logged_in'] = 1;
-    header("Location: updatepage.php");
+    header("Refresh:1; url=updatepage.php");
 }
 else {
-    header("Location: login.php");
+    echo "Incorrect username or password";
+    header("Refresh:2; url=login.php");
 }
 
 ?>

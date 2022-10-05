@@ -49,7 +49,7 @@
                 </div>
 
                 <!-- Contact form start -->
-                <form id="contact-form" method="post">
+                <form id="contact-form" method="post" onsubmit="alert ('Thank you for submitting the form');">
                     <div class="contact-form-left-column">
                         <!-- Ask user to fill out their full name -->
                         <label for="name">Full Name</label><br>
@@ -63,6 +63,7 @@
 
                         <!-- Submit button -->
                         <button id="contact-submit-button" type="submit" name="submit">Submit</button> <br><br>
+
                     </div>
 
                     <div class="contact-form-right-column">
