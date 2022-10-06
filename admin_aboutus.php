@@ -13,24 +13,25 @@
 <body>
 <!-- Information on top of the page -->
 <div id="admin-info">
-    <p class="center">Log in as admin to update and add boba flavours</p>
+    <p class="center">To add an image for the boba flavour, use the 'update boba' section</p>
 </div>
 
 <!-- Navigation bar start -->
 <nav>
     <!-- Logo -->
     <div id="logo">
-        <p><a href="index.php"><img src="images/logo.png" alt="spill the tea logo" height="100"></a></p>
+        <p><a href="admin_index.php"><img src="images/logo.png" alt="spill the tea logo" height="100"></a></p>
     </div>
 
     <!-- Navigation links -->
-    <a href="index.php">Home</a>
-    <a href="menu.php">Menu</a>
-    <a href="aboutus.php" class="active">About Us</a>
-    <a href="contact.php">Contact</a>
+    <a href="admin_index.php">Home</a>
+    <a href="admin_menu.php">Menu</a>
+    <a href="admin_aboutus.php" class="active">About Us</a>
+    <a href="updatepage.php">Update</a>
+    <a href="orders.php">Orders</a>
 
     <!-- Login and logout links -->
-    <a href="login.php">Login</a>
+    <a href="process_logout.php">Logout</a>
 </nav>
 <!-- Navigation bar end -->
 
