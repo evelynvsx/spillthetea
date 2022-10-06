@@ -24,9 +24,9 @@ exit();
         <!-- Navigation bar start -->
         <nav>
             <!-- Logo -->
-            <p><a href="index.php"><img id="logo" src="images/logo.png" alt="spill the tea logo" height="120px" </a></p>
+            <p><a href="index.php"><img id="logo" src="images/logo.png" alt="spill the tea logo" height="100"></a></p>
 
-            <!-- Navigation links --->
+            <!-- Navigation links -->
             <a href="index.php">Home</a>
             <a href="menu.php">Menu</a>
             <a href="aboutus.php">About Us</a>
@@ -60,7 +60,7 @@ exit();
                         <input id="login-submit-button" type="submit" name="submit" value="Log in">
                     </form>
                 </div>
-                <img class="login-illustration" src="images/login_illustration.jpg" alt="login page illustration" height="350px">
+                <img class="login-illustration" src="images/login_illustration.jpg" alt="login page illustration" height="350">
             </div>
 
         </main>
@@ -70,8 +70,8 @@ exit();
             <br>
             <!-- Social Media Icons -->
             <ul id="footericons">
-                <li><a href="https://www.instagram.com/" target="_blank"><img src="images/instagram-icon.png" alt="Instagram Icon" width="20px"></a></li>
-                <li><a href="https://www.facebook.com/" target="_blank"><img src="images/facebook-icon.png" alt="Facebook Icon" width="22px"></a></li>
+                <li><a href="https://www.instagram.com/" target="_blank"><img src="images/instagram-icon.png" alt="Instagram Icon" width="20"></a></li>
+                <li><a href="https://www.facebook.com/" target="_blank"><img src="images/facebook-icon.png" alt="Facebook Icon" width="22"></a></li>
             </ul>
             <p class="center">©2022 Spill the Tea</p>
         </footer>

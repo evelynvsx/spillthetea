@@ -11,28 +11,26 @@
 </head>
 
 <body>
-
 <!-- Information on top of the page -->
 <div id="admin-info">
-    <p class="center">You are logged in as admin</p>
+    <p class="center">Log in as admin to update and add boba flavours</p>
 </div>
 
 <!-- Navigation bar start -->
 <nav>
     <!-- Logo -->
     <div id="logo">
-        <p><a href="admin_index.php"><img src="images/logo.png" alt="spill the tea logo" height="100px"></a></p>
+        <p><a href="index.php"><img src="images/logo.png" alt="spill the tea logo" height="100"></a></p>
     </div>
 
-    <!-- Navigation links --->
-    <a href="admin_index.php">Home</a>
-    <a href="admin_menu.php">Menu</a>
-    <a href="admin_aboutus.php" class="active">About Us</a>
-    <a href="updatepage.php">Update</a>
-    <a href="orders.php">Orders</a>
+    <!-- Navigation links -->
+    <a href="index.php">Home</a>
+    <a href="menu.php">Menu</a>
+    <a href="aboutus.php" class="active">About Us</a>
+    <a href="contact.php">Contact</a>
 
     <!-- Login and logout links -->
-    <a href="process_logout.php">Logout</a>
+    <a href="login.php">Login</a>
 </nav>
 <!-- Navigation bar end -->
 
@@ -40,7 +38,7 @@
 <main>
     <div class="about-us-intro">
         <h2>ABOUT US</h2>
-        <a target="_blank">
+        <a href="https://www.freepik.com/free-photo/composition-with-delicious-traditional-thai-tea_15035791.htm#query=bubble%20tea&position=10&from_view=search" target="_blank">
             <img src="images/about_us_img_1.jpg" alt="2 glass of bubble tea with cake" width="60%">
         </a>
         <p>
@@ -55,7 +53,7 @@
     </div>
     <div class="about-us-section-1">
         <div class="handmade-pearls-images">
-            <a target="_blank">
+            <a href="https://trello.com/c/Rjul6p0v/67-find-images-for-about-us-page" target="_blank">
                 <img src="images/handmade-pearls.jpg" alt="boba pearls stored in a small glass bowl" width="18%">
                 <img src="images/white-tapioca-pearls.jpg" alt="white tapioca pearls" width="40.5%">
                 <img src="images/handmade-pearls-2.jpg" alt="bubble tea and boba pearls in a small bowl" width="18%">
@@ -79,8 +77,8 @@
     <br>
     <!-- Social Media Icons -->
     <ul id="footericons">
-        <li><a href="https://www.instagram.com/" target="_blank"><img src="images/instagram-icon.png" alt="Instagram Icon" width="20px"></a></li>
-        <li><a href="https://www.facebook.com/" target="_blank"><img src="images/facebook-icon.png" alt="Facebook Icon" width="22px"></a></li>
+        <li><a href="https://www.instagram.com/" target="_blank"><img src="images/instagram-icon.png" alt="Instagram Icon" width="20"></a></li>
+        <li><a href="https://www.facebook.com/" target="_blank"><img src="images/facebook-icon.png" alt="Facebook Icon" width="22"></a></li>
     </ul>
     <p class="center">©2022 Spill the Tea</p>
 </footer>

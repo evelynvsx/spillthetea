@@ -42,17 +42,17 @@
         <nav>
             <!-- Logo -->
             <div id="logo">
-                <p><a href="index.php"><img src="images/logo.png" alt="spill the tea logo" height="100px"></a></p>
+                <p><a href="index.php"><img src="images/logo.png" alt="spill the tea logo" height="100"></a></p>
             </div>
 
-            <!-- Navigation links --->
+            <!-- Navigation links -->
             <a href="index.php">Home</a>
             <a href="menu.php" class="active">Menu</a>
             <a href="aboutus.php">About Us</a>
             <a href="contact.php">Contact</a>
 
             <!-- Login and logout links -->
-            <a href="login.php">Login</a></p>
+            <a href="login.php">Login</a>
         </nav>
         <!-- Navigation bar end -->
 
@@ -69,7 +69,7 @@
 
                 <!-- Search engine -->
                 <div class="search-engine">
-                    <form action="" method="post">
+                    <form method="post">
                         <input type="search" name="search">
                         <!-- Search submit button -->
                         <input type="submit" name="submit" value="Search">
@@ -159,8 +159,8 @@
             <br>
             <!-- Social Media Icons -->
             <ul id="footericons">
-                <li><a href=""><img src="images/instagram-icon.png" alt="Instagram Icon" width="20px"></a></li>
-                <li><a href=""><img src="images/facebook-icon.png" alt="Facebook Icon" width="22px"></a></li>
+                <li><a href=""><img src="images/instagram-icon.png" alt="Instagram Icon" width="20"></a></li>
+                <li><a href=""><img src="images/facebook-icon.png" alt="Facebook Icon" width="22"></a></li>
             </ul>
             <p class="center">©2022 Spill the Tea</p>
         </footer>

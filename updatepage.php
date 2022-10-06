@@ -26,7 +26,7 @@ $all_orders_result = mysqli_query($dbcon, $all_orders_query);
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Spill the Tea</title>
 
     <meta name="description" content="">
     <link href="css/spillthetea.css" rel="stylesheet">
@@ -45,10 +45,10 @@ $all_orders_result = mysqli_query($dbcon, $all_orders_query);
     <nav>
         <!-- Logo -->
         <div id="logo">
-            <p><a href="admin_index.php"><img src="images/logo.png" alt="spill the tea logo" height="100px"></a></p>
+            <p><a href="admin_index.php"><img src="images/logo.png" alt="spill the tea logo" height="100"></a></p>
         </div>
 
-        <!-- Navigation links --->
+        <!-- Navigation links -->
         <a href="admin_index.php">Home</a>
         <a href="admin_menu.php">Menu</a>
         <a href="admin_aboutus.php">About Us</a>
@@ -125,8 +125,8 @@ $all_orders_result = mysqli_query($dbcon, $all_orders_query);
     <br>
     <!-- Social Media Icons -->
     <ul id="footericons">
-        <li><a href="https://www.instagram.com/" target="_blank"><img src="images/instagram-icon.png" alt="Instagram Icon" width="20px"></a></li>
-        <li><a href="https://www.facebook.com/" target="_blank"><img src="images/facebook-icon.png" alt="Facebook Icon" width="22px"></a></li>
+        <li><a href="https://www.instagram.com/" target="_blank"><img src="images/instagram-icon.png" alt="Instagram Icon" width="20"></a></li>
+        <li><a href="https://www.facebook.com/" target="_blank"><img src="images/facebook-icon.png" alt="Facebook Icon" width="22"></a></li>
     </ul>
     <p class="center">©2022 Spill the Tea</p>
 </footer>
