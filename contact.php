@@ -53,12 +53,12 @@
                     <div class="contact-form-left-column">
                         <!-- Ask user to fill out their full name -->
                         <label for="name">Full Name</label><br>
-                        <input type="text" name="name" placeholder="Your Full Name" required>
+                        <input type="text" name="name" minlength="2" maxlength="30" placeholder="Your Full Name" required>
                         <br> <br><!-- break for space between one text box and another -->
 
                         <!-- Ask user to fill out their email address -->
                         <label for="email">Email Address</label><br>
-                        <input type="email" name="email" placeholder="Your Email Address" required>
+                        <input type="email" name="email" maxlength="64" placeholder="Your Email Address" required>
                         <br> <br><!-- break for space between one text box and another -->
 
                         <!-- Submit button -->

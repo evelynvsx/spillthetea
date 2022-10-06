@@ -119,20 +119,60 @@
                 }
 
                 echo "<br>"; /* Insert break for space between search engine and flavours list */
+            ?>
+
+            <!-- Add sorted function using sql query -->
+            <div class="sort-boba">
+                <h2>SORT BOBA</h2>
+                <p>Use the sort dropdown down below to sort boba</p>
+                <div class="sort-dropdown">
+                    <form name="manage" action="menu.php" method="post">
+                        <select name="manage">
+                            <option value="choose">Sort by</option>
+                            <option value="PriceDESC">Price high to low</option>
+                            <option value="PriceASC">Price low to high</option>
+                            <option value="BobaDESC">Boba Flavour (A-Z)</option>
+                        </select>
+                        <div class="sort-button">
+                            <input type="submit" value="Sort">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <?php
+                if (isset($_POST['manage'])){
+                    switch( $_POST['manage'] ){
+                        case 'choose':
+                            $all_boba_query = 'SELECT `BobaFlavour`,`price`,`Image` FROM `boba`';
+                            break;
+                        case 'PriceDESC':
+                            $all_boba_query = 'SELECT `BobaFlavour`,`price`,`Image` FROM `boba` ORDER BY `price` DESC';
+                            break;
+                        case 'PriceASC':
+                            $all_boba_query = 'SELECT `BobaFlavour`,`price`,`Image` FROM `boba` ORDER BY `price` ASC';
+                            break;
+                        case 'BobaDESC':
+                            $all_boba_query = 'SELECT `BobaFlavour`,`price`,`Image` FROM `boba` ORDER BY `BobaFlavour` ASC';
+                            break;
+                    }
+                }
+                else{
+                    $all_boba_query = "SELECT `BobaFlavour`,`price`,`Image` FROM `boba`";
+                }
 
                 /* Display all boba flavours */
-                $all_boba_query = "SELECT `BobaFlavour`,`price`,`Image` FROM `boba`";
                 $all_boba_results = mysqli_query($dbcon, $all_boba_query);
 
                 /* Display boba flavours in menu column to act as its grid */
                 /* Display menu table's titles */
                 echo
                 "<table class='menu-grid'>
-                <tr>
-                <th>IMAGE</th>
-                <th>BOBA FLAVOUR</th>
-                <th>PRICE</th>
-                </tr>";
+                    <tr>
+                    <th>IMAGE</th>
+                    <th>BOBA FLAVOUR</th>
+                    <th>PRICE</th>
+                    </tr>";
 
                 /* Table content */
                 while ($all_boba_row = mysqli_fetch_assoc($all_boba_results)) {
@@ -141,7 +181,7 @@
 
                     // show images for each boba flavour in the product layout
                     echo "<td><br><img src='images/".$all_boba_row['Image']."' height='125' width='125' 
-                                       alt=".'BobaFlavour:'.$all_boba_row['BobaFlavour']."'/></td>";
+                                           alt=".'BobaFlavour:'.$all_boba_row['BobaFlavour']."'/></td>";
 
                     // show boba flavours in the product layout //
                     echo "<p class='boba-flavour-name'><td>".$all_boba_row['BobaFlavour']."</td>";
@@ -151,7 +191,9 @@
 
                     echo "</tr>";
                 }
-                ?>
+                echo "<br><br><br>"; /* Insert break for space between search engine and flavours list */
+            ?>
+
         </main>
 
         <!-- Footer -->
